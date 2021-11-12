@@ -11,7 +11,7 @@ import Schedule from "./component/Schedule";
 import Gift from './component/Gift';
 
 
-function App(props:any){
+const App = function (props:any){
 
   const [isLogin, setIsLogin] = useState<boolean>(false);
   const [email, setEmail] = useState<string | null>("");
