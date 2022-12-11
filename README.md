@@ -3,7 +3,7 @@
 
 #### &#128073; [**팀 Wiki**](https://github.com/codestates/don-forget-client/wiki)             	
 #### &#128073; [**기획**](https://github.com/codestates/don-forget-client/wiki/%EC%95%84%EC%9D%B4%EB%94%94%EC%96%B4-%EA%B8%B0%ED%9A%8D%EC%84%9C)                   
-#### &#128073; [**API 문서**](https://github.com/codestates/don-forget-client/wiki/Server-side-Flow-Chart)                       		
+#### &#128073; [**API 문서**](https://github.com/codestates/don-forget-client/wiki/Server-side-Flow-Chart                       		
 
 
 <br />
