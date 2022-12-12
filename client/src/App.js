@@ -14,8 +14,6 @@ import Search from './component/Search';
 import cookie from 'react-cookies'
 
 
-
-
 function App(props) {
 
   const [isLogin, setIsLogin] = useState(false);
@@ -32,10 +30,6 @@ function App(props) {
       console.log(userId);
     }
   })
-
-  console.log(props.location.pathname);
-  console.log(isLogin)
-  console.log(email, name);
 
   return (
     <div className="App">
