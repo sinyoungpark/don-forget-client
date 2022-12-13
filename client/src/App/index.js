@@ -22,7 +22,7 @@ export default function App() {
         <Nav />
         <div
           className={
-            location.pathname === "/intro"
+            location.pathname === "/"
               ? "background"
               : location.pathname === "/signin" ||
                 location.pathname === "/signup"
