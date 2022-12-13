@@ -9,6 +9,7 @@ import Home from "./component/Home";
 import Schedule from "./component/Schedule";
 import Gift from "./component/Gift";
 import Mypage from "./component/Mypage";
+import "./index.scss";
 
 const router = createBrowserRouter([
   {
