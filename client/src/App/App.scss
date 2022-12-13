@@ -1,10 +1,10 @@
 @import "../mixin";
 
-.app{
-  font-family : var(--font-primary);
+.app {
+  font-family: var(--font-primary);
 
   /* 흰 배경 전체(로그인, 회원가입) */
-  .fullBackground{
+  .fullBackground {
     position: absolute;
     border-radius: 60px;
     box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.1);
@@ -12,110 +12,130 @@
     z-index: 999;
     animation-name: fullBackground;
     animation-duration: 1s;
-    width  :100%;
-    top : 10%;
-    height : 85vh;
+    width: 100%;
+    top: 10%;
+    height: 85vh;
   }
 
   /* fullBackground animation*/
-  @keyframes fullBackground{
-    0% { top : 15%; }
-    100% {top : 10%;}
+  @keyframes fullBackground {
+    0% {
+      top: 15%;
+    }
+
+    100% {
+      top: 10%;
+    }
+  }
+
+  /* 흰 배경 아래로 */
+  .background {
+    position: fixed;
+    width: 100%;
+    height: 90vh;
+    border-radius: 60px;
+    box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    z-index: 3;
+    top: 10vh;
   }
 
 }
 
-@include desktop{
-/* 흰 배경 아래로 */
-.background{
-  position: fixed;
-  display: table;
-  width: 99.5%;
-  height: 90vh;
-  border-radius: 60px;
-  box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  z-index: 3;
-  top: 10vh;
-}
+@include desktop {
 
+  /* 흰 배경 옆으로 */
+  .sideBackground {
+    position: absolute;
+    display: table;
+    width: 94%;
+    height: 100vh;
+    border-radius: 60px;
+    // box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.2);
+    background-color: #ffffff;
+    z-index: 3;
+    top: 0px;
+    left: 6%;
+    animation-name: sideBackground;
+    animation-duration: 4s;
+  }
 
-/* 흰 배경 옆으로 */
-.sideBackground{
-  position: absolute;
-  display: table;
-  width: 94%;
-  height: 100vh;
-  border-radius: 60px;
-  // box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.2);
-  background-color: #ffffff;
-  z-index:3;
-  top: 0px;
-  left: 6%;
-  animation-name : sideBackground;
-  animation-duration: 4s;
-}
+  /* sideBackground animation*/
+  @keyframes sideBackground {
+    0% {
+      left: 12%;
+    }
 
-/* sideBackground animation*/
-@keyframes sideBackground{
-  0% { left : 12%; }
-  25% { left : 6%; }
-}
+    25% {
+      left: 6%;
+    }
+  }
 }
 
 
 @include mobile {
-body{
-  // overflow-y: ; 
-  overflow-x: scroll;
-}
+  body {
+    // overflow-y: ; 
+    overflow-x: scroll;
+  }
 
-/* 흰 배경 아래로 */
-.background{
-  position: fixed;
-  display: table;
-  width: 100%;
-  height: 90vh;
-  border-radius: 0px;
-  background-color: #ffffff;
-  z-index: 3;
-  top: 10vh;
-}
-/* 흰 배경 전체(로그인, 회원가입) */
-.fullBackground{
-  position: absolute;
-  display: table;
-  width: 100%;
-  height: 90vh;
-  border-radius: 0px;
-  background-color: #ffffff;
-  z-index: 1;
-  animation-name: fullBackground;
-  animation-duration: 2s;
-}
+  /* 흰 배경 아래로 */
+  .background {
+    position: fixed;
+    display: table;
+    width: 100%;
+    height: 90vh;
+    border-radius: 0px;
+    background-color: #ffffff;
+    z-index: 3;
+    top: 10vh;
+  }
 
-/* fullBackground animation*/
-@keyframes fullBackground{
-  0% { top : 14%; }
-  25% { top : 0%; }
-}
+  /* 흰 배경 전체(로그인, 회원가입) */
+  .fullBackground {
+    position: absolute;
+    display: table;
+    width: 100%;
+    height: 90vh;
+    border-radius: 0px;
+    background-color: #ffffff;
+    z-index: 1;
+    animation-name: fullBackground;
+    animation-duration: 2s;
+  }
 
-/* 흰 배경 옆으로 */
-.sideBackground{
-  position: absolute;
-  display: table;
-  width: 100%;
-  height: 100%;
-  background-color: #ffffff;
-  z-index:3;
-  top: -20px;
-  animation-name : sideBackground;
-  // animation-duration: 8s;
-}
+  /* fullBackground animation*/
+  @keyframes fullBackground {
+    0% {
+      top: 14%;
+    }
 
-/* sideBackground animation*/
-@keyframes sideBackground{
-  0% { top : 100%; }
-  25% { top : 0%; }
-}
+    25% {
+      top: 0%;
+    }
+  }
+
+  /* 흰 배경 옆으로 */
+  .sideBackground {
+    position: absolute;
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 3;
+    top: -20px;
+    animation-name: sideBackground;
+    // animation-duration: 8s;
+  }
+
+  /* sideBackground animation*/
+  @keyframes sideBackground {
+    0% {
+      top: 100%;
+    }
+
+    25% {
+      top: 0%;
+    }
+  }
 }

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./Signup.scss";
 import Logo from "../../Logo.png";
 import { User } from "../../fakeDB";
-import { Navigate } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 
 export default function Signup() {
   const [email, setEmail] = useState("");
@@ -62,7 +62,7 @@ export default function Signup() {
   return (
     <div className="signup">
       {success && <Navigate to="/signin" replace={true} />}
-      <img className="logo" src={Logo} alt="Logo_don-forget" />
+      <Link to="/" replace={true}><img src={Logo} alt="Logo_dont-forget" className="logo" /></Link>
         <h1>회원가입</h1>
         <form className="signup_form">
           <input

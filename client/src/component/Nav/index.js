@@ -52,7 +52,7 @@ export default function Nav() {
       className={
         location.pathname === "/signin" || location.pathname === "/signup"
           ? "topnav fixed"
-          : location.pathname === "/intro"
+          : location.pathname === "/"
           ? "topnav"
           : "sidenav"
       }
@@ -93,7 +93,7 @@ export default function Nav() {
           <AccountCircleIcon />
         </Avatar>
       </Link>
-      <Link to="/signin" replace={true}>
+      <Link to="/signin" replace={true} className="loginBtn">
         LOGIN
       </Link>
     </div>

@@ -40,7 +40,7 @@ export default function Signin() {
   return (
     <div className="signin">
       {/* {user.id && <Navigate to="/" replace={true} />} */}
-      <img src={Logo} alt="Logo_dont-forget" className="logo" />
+      <Link to="/" replace={true}><img src={Logo} alt="Logo_dont-forget" className="logo" /></Link>
       <h1>로그인</h1>
       <form className="login_form">
         <input
