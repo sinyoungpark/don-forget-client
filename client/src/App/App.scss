@@ -1,10 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 @import "../mixin";
 
-* {
-  font-family: 'Noto Sans KR', sans-serif;
-}
+.app{
+  font-family : var(--font-primary);
 
+  /* 흰 배경 전체(로그인, 회원가입) */
+  .fullBackground{
+    position: absolute;
+    border-radius: 60px;
+    box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    z-index: 999;
+    animation-name: fullBackground;
+    animation-duration: 1s;
+    width  :100%;
+    top : 10%;
+    height : 85vh;
+  }
+
+  /* fullBackground animation*/
+  @keyframes fullBackground{
+    0% { top : 15%; }
+    100% {top : 10%;}
+  }
+
+}
 
 @include desktop{
 /* 흰 배경 아래로 */
@@ -19,26 +38,7 @@
   z-index: 3;
   top: 10vh;
 }
-/* 흰 배경 전체(로그인, 회원가입) */
-.fullBackground{
-  position: absolute;
-  display: table;
-  width: 99.9%;
-  height: 90vh;
-  border-radius: 60px;
-  box-shadow: -5px -5px 5px 0 rgba(0, 0, 0, 0.1);
-  background-color: #ffffff;
-  z-index: 1;
-  animation-name: fullBackground;
-  animation-duration: 4s;
-  left : 0.3%;
-}
 
-/* fullBackground animation*/
-@keyframes fullBackground{
-  0% { top : 12%; }
-  25% { top : 0.5%; }
-}
 
 /* 흰 배경 옆으로 */
 .sideBackground{

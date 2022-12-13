@@ -1,249 +1,257 @@
 @import "../../mixin";
 
-@include desktop {
-    /*전체정렬 signin 컴포넌트*/
-    .signin{
-        padding-top: 150px;
+.signin{
+    height : 100%;
+    display : flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top : 7rem;
+
+    .logo{
+        width: 100px;
+    }
+
+
+    h1{
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #4a4a4a;
+        margin : 20px 0;
+    }
+
+    .login_form{
         display : flex;
         flex-direction: column;
-        align-items: center;
-        .logo{
-            width: 10%;
-            display: block;
-        }
-        h1{
-            text-align: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #4a4a4a;
-        }
-
-        a{
-            position: relative;
-            top : 10px;
-            text-decoration: none;
-            color : rgb(41, 69, 231);
-            font-size: 13px;
-            margin: 20px 0px;
-        }
-
-        .inputValue{
-            input{
-                display: block;
-                margin-top: 15px;
-                border: none;
-                border-bottom: 1px solid #4a4a4a;
-                width : 400px;
-                font-size: 15px;
-                outline: none;
-                height: 30px;
-                padding-top : 20px;
-
-                &:focus{
-                    border-color : #3b23a6;
-                }
-                &::placeholder{
-                    position: relative;
-                    top: 0px;
-                }
-                &:focus::placeholder{
-                    color : #3b23a6;
-                    font-size: 13px;
-                    position: relative;
-                    top : -30px;
-                    -webkit-transition: all .15s ;
-                    transition: all .15s ;
-                }
-            }
-            .alert{
-                color: rgb(117, 33, 12);
-                border-radius: 6px;
-                background-color: rgb(255, 215, 215);
-                padding: 7px 30px;
-                margin-top: 20px;
-                font-size: 15px;
-                .alertIcon{
-                    background-color: white;
-                    color : rgb(241, 63, 63);
-                    display: inline-block;
-                }
-                strong{
-                    font-size: 15px;
-                    margin: 10px;
-                }
-            }
-            .login_btn{
-                width:100%;
-                margin-top:40px;
-                color:white;
-                background-color: #3b23a6;
-                border-radius: 5px;
-                padding: 12px;
-                border:none;
-                &:hover{
-                    background-color:#3436ad;
-                    cursor: pointer;
-                    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-                }
-            }
-            .signinLink{
-                position: relative;
-                left : 280px;
-            }           
-        }
-        button:focus{
+        input{
+            margin-top: 15px;
+            border: none;
+            border-bottom: 1px solid #4a4a4a;
+            width : 400px;
+            font-size: 18px;
             outline: none;
+            height: 50px;
+            padding-top : 20px;
+
+            &:focus{
+                border-color : #3b23a6;
+            }
+            &::placeholder{
+                position: relative;
+                top: 0px;
+            }
+            &:focus::placeholder{
+                color : #3b23a6;
+                font-size: 13px;
+                position: relative;
+                top : -30px;
+                -webkit-transition: all .15s ;
+                transition: all .15s ;
+            }
         }
-        .socialLogin{
-          text-align: center;
-          margin-top: 2%;
-          font-size: large;
+
+        .alert{
+            color: rgb(117, 33, 12);
+            border-radius: 6px;
+            background-color: rgb(255, 215, 215);
+            padding: 7px 30px;
+            margin-top: 20px;
+            font-size: 15px;
+            .alertIcon{
+                background-color: white;
+                color : rgb(241, 63, 63);
+                display: inline-block;
+            }
+            strong{
+                font-size: 15px;
+                margin: 10px;
+            }
+        }
+
+        .login_btn{
+            margin-top : 30px;
+            width:100%;
+            color:white;
+            background-color: #3b23a6;
+            border-radius: 5px;
+            padding: 12px;
+            border:none;
+            &:hover{
+                background-color:#3436ad;
+                cursor: pointer;
+                box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+            }
+        }
+
+        .bottom{
+            display : flex;
+            justify-content: space-between;
+            font-size: 15px;
+            margin-top : 10px;
+            cursor : pointer;
+            a{
+                text-decoration: none;
+                color : rgb(41, 69, 231);
+                font-size: 15px;
+            }
+        }         
+    }
+
+
+    button:focus{
+        outline: none;
+    }
+    .socialLogin{
+      text-align: center;
+      margin-top: 2%;
+      font-size: large;
+      position: relative;
+      width : 100%;
+      button{
+        box-shadow: none !important;
+        background-image: url("../../googleLogo.png");
+        background-position: 30% 50%;
+        background-size: 36px;
+        background-repeat: no-repeat;
+        background-color: rgb(209, 53, 50) !important;
+        // display : inline-block;
+        margin: 0px 10px;
+        color:white !important;
+        width: 400px;
+        height: 30px;
+        border-radius: 5px !important;
+        padding: 20px 20px 20px 35px !important;
+        div {
+          background-color: rgb(209, 53, 50) !important;
+          svg {
+            display: none;
+          }
+        }
+        span {
           position: relative;
-          width : 100%;
-          button{
+          left: 28%;
+        }
+        &.GoogleLogin {
             box-shadow: none !important;
+            border-color: rgb(219, 62, 34);
+            display: block;
+            width: 400px;
+            margin: 10px auto;
             background-image: url("../../googleLogo.png");
-            background-position: 30% 50%;
+            background-position: 25% 50%;
             background-size: 36px;
             background-repeat: no-repeat;
-            background-color: rgb(209, 53, 50) !important;
-            // display : inline-block;
-            margin: 0px 10px;
-            color:white !important;
-            width: 400px;
-            height: 30px;
+            background-color: rgb(219, 62, 34) !important;
+            height: 42px;
             border-radius: 5px !important;
-            padding: 20px 20px 20px 35px !important;
-            div {
-              background-color: rgb(209, 53, 50) !important;
-              svg {
-                display: none;
-              }
+            font-size: 14px;
+            padding-top: 9px !important;
+            padding-left: 46px !important;
+            &:hover{
+                opacity: 0.9;
+                cursor: pointer;
             }
-            span {
-              position: relative;
-              left: 28%;
-            }
-            &.GoogleLogin {
-                box-shadow: none !important;
-                border-color: rgb(219, 62, 34);
-                display: block;
-                width: 400px;
-                margin: 10px auto;
-                background-image: url("../../googleLogo.png");
-                background-position: 25% 50%;
-                background-size: 36px;
-                background-repeat: no-repeat;
-                background-color: rgb(219, 62, 34) !important;
-                height: 42px;
-                border-radius: 5px !important;
-                font-size: 14px;
-                padding-top: 9px !important;
-                padding-left: 46px !important;
-                &:hover{
-                    opacity: 0.9;
-                    cursor: pointer;
-                }
-              }
-            &.FBLogin {
-              box-shadow: none !important;
-              display: block;
-              width: 400px;
-              margin: 10px auto;
-              background-image: url("../../facebookLogo.png");
-              background-position: 25% 50%;
-              background-size: 36px;
-              background-repeat: no-repeat;
-              background-color: rgb(45, 66, 139) !important;
-              height: 42px;
-              border-radius: 5px !important;
-              font-size: 14px;
-              padding-top: 9px !important;
-              padding-left: 46px !important;
-              &:hover{
-                  opacity: 0.9;
-                  cursor: pointer;
-              }
-            }
-        } 
-      }
-        
-    }
-
-    /* 비번 찾기 모달창 담당 */
-    .modal {
-        position: fixed;
-        left:0;
-        right:0;
-        top:0;
-        bottom:0;
-        z-index: 10;
-        background: rgba(0,0,0,0.3);
-        .content{
-            position: fixed;
-            left: 50%;
-            top: 50%;
-            z-index: 2;
-            transform: translate3d(-50%, -50%, 0);
-            background: whitesmoke;
-            padding: 0px;
-            box-shadow: 0 0 5px #000;
-            width: 50%;
-            height: 45%;
-            padding: 40px;
-            border-radius: 10px;
-
-            h3{
-                border-bottom: 2px solid black;
-                padding-bottom: 10px;
-            }
-            p {
-                font-size: 0.8rem;
-            }
-            .findPW {
-                border: 1px solid rgb(201, 199, 199);
-                border-radius: 10px;
-                width: 100%;
-                display: block;
-                text-align: center;
-                padding: 20px 0px;
-                margin-top: 20px;
-                input{
-                    border : 1px solid rgba(151, 148, 148, 0.5);
-                    width: 80%;
-                    height: 10%;
-                    padding: 10px;
-                    margin : 10px;
-                    position: relative;
+          }
+        &.FBLogin {
+          box-shadow: none !important;
+          display: block;
+          width: 400px;
+          margin: 10px auto;
+          background-image: url("../../facebookLogo.png");
+          background-position: 25% 50%;
+          background-size: 36px;
+          background-repeat: no-repeat;
+          background-color: rgb(45, 66, 139) !important;
+          height: 42px;
+          border-radius: 5px !important;
+          font-size: 14px;
+          padding-top: 9px !important;
+          padding-left: 46px !important;
+          &:hover{
+              opacity: 0.9;
+              cursor: pointer;
+          }
+        }
+    } 
+  }
     
-                    &:focus{
-                        border-color: #3436ad;
+}
+
+.find_password_form{
+        /* 비번 찾기 모달창 담당 */
+        .modal {
+            position: fixed;
+            left:0;
+            right:0;
+            top:0;
+            bottom:0;
+            z-index: 10;
+            background: rgba(0,0,0,0.2);
+            .content{
+                position: fixed;
+                left: 50%;
+                top: 50%;
+                z-index: 2;
+                transform: translate(-50%, -50%);
+                background: whitesmoke;
+                padding: 0px;
+                width: 700px;
+                height: 400px;
+                padding: 40px;
+                border-radius: 10px;
+    
+                h3{
+                    border-bottom: 2px solid black;
+                    padding-bottom: 10px;
+                    margin-bottom : 10px;
+                }
+                p {
+                    font-size: 0.8rem;
+                }
+                .findPW {
+                    border: 1px solid rgb(201, 199, 199);
+                    border-radius: 10px;
+                    width: 100%;
+                    display: block;
+                    text-align: center;
+                    padding: 20px 0px;
+                    margin-top: 20px;
+                    input{
+                        border : 1px solid rgba(151, 148, 148, 0.5);
+                        width: 80%;
+                        height: 10%;
+                        padding: 10px;
+                        margin : 10px;
+                        position: relative;
+        
+                        &:focus{
+                            border-color: #3436ad;
+                        }
                     }
                 }
-            }
-            .findPwBtn{
-                display: block;
-                text-align: center;
-                margin-top: 30px;
-                width : 60%;
-                position: relative;
-                margin-left: auto;
-                margin-right: auto;
-                button {
-                    background-color: white;
-                    width: 40%;
-                    padding: 5px 20px;
-                    border: 1px solid rgb(201, 199, 199);
-                    margin: 10px 5px;
-                    border-radius: 6px;
-                    &:hover{
-                        cursor: pointer;
-                        background-color: #b9b9b9;
+                .findPwBtn{
+                    display: block;
+                    text-align: center;
+                    margin-top: 30px;
+                    width : 60%;
+                    position: relative;
+                    margin-left: auto;
+                    margin-right: auto;
+                    button {
+                        background-color: white;
+                        width: 40%;
+                        padding: 5px 20px;
+                        border: 1px solid rgb(201, 199, 199);
+                        margin: 10px 5px;
+                        border-radius: 6px;
+                        &:hover{
+                            cursor: pointer;
+                            background-color: #b9b9b9;
+                        }
                     }
                 }
             }
         }
-    }
 }
 
 @include mobile {
