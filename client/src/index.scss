@@ -1,8 +1,17 @@
-@import "./mixin";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
 
+*{
+    margin : 0;
+    padding : 0;
+    box-sizing : border-box;
+}
 
-@include mobile{
-    body{
-        margin : 0;
-    }
+:root{
+    --font-primary : 'Noto Sans KR', sans-serif;
+    --color-primary : #3b23a6;
+}
+
+#root{
+    max-width : 100vw;
+    min-height : 100%;
 }
