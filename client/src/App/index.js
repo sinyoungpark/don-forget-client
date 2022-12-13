@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Navigate, Outlet, useLocation } from "react-router-dom";
 import Nav from "../component/Nav";
 import "./App.scss";
+import { AppContainer } from "./styles";
 
 export const UserContext = createContext([]);
 
@@ -14,6 +15,7 @@ export default function App() {
 
   return (
     <div className="app">
+      <Nav />
       <div
         className={
           location.pathname === "/intro"
@@ -23,7 +25,6 @@ export default function App() {
             : "sideBackground"
         }
       >
-        <Nav />
         <Outlet />
       </div>
     </div>
