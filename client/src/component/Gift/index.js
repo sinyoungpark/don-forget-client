@@ -9,7 +9,7 @@ import { CopyToClipboard } from 'react-copy-to-clipboard';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
 
-function Gift() {
+export default function Gift() {
 
   // 4개 || 8개씩 랜더
   const [addListNum, setAddListNum] = useState(8);
@@ -328,4 +328,3 @@ function Gift() {
   );
 }
 
-export default withRouter(Gift);

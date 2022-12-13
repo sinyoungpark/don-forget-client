@@ -7,6 +7,8 @@ import Signin from "./component/Signin";
 import Signup from "./component/Signup";
 import Home from "./component/Home";
 import Schedule from "./component/Schedule";
+import Gift from "./component/Gift";
+import Mypage from "./component/Mypage";
 
 const router = createBrowserRouter([
   {
@@ -30,8 +32,16 @@ const router = createBrowserRouter([
         element : <Home/>
       },
       {
-        path : "schedule",
+        path : "/schedule",
         element : <Schedule/>
+      },
+      {
+        path : "/gift",
+        element : <Gift/>
+      },
+      {
+        path : "/mypage",
+        element : <Mypage/>
       }
     ]
   }

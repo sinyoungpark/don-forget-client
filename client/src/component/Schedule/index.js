@@ -5,6 +5,7 @@ import "./Schedule.scss"
 import AddIcon from '@material-ui/icons/Add';
 import { Container, Button, Link } from 'react-floating-action-button';
 import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import Modal from "../Modal"
 
 export default function Schedule(){
   const { userId } = window.sessionStorage.getItem("id");

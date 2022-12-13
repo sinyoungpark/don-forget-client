@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 
-function MyPage(props) {
+export default function MyPage(props) {
   const classes = useStyles();
 
   const { email, name, setIsLogin, setEmail, setName, history } = props;
@@ -195,4 +195,3 @@ function MyPage(props) {
   );
 }
 
-export default withRouter(MyPage);
