@@ -4,10 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import axios from "axios";
 import "./Modal.scss"
 
-
-
-
-export default function Modal(props:any) {
+export default function Modal(props) {
     /* post 요청 시 onchange 값들 */
     const [date, setDate] = useState("");
     const [eventTarget, setTarget] = useState("");
@@ -17,12 +14,12 @@ export default function Modal(props:any) {
     /* get요청으로 받아온 값들 -> 수정 시 필요 */
     const { isOpen, setModal, isModify, data_date, data_giftType, data_event_target, data_event_type, data_gift, schedule_id, event_id, handleModify, setUseEffect, controllUseEffect, data_giveandtake, setAgain, scheduleDate } = props;
 
-    const [giveAndTake, setGiveAndTake] = useState<any>("");
+    const [giveAndTake, setGiveAndTake] = useState("");
     const [giftType, setGiftType] = useState("");
     const [inputType, setInputType] = useState("");
 
 
-    function handleSaveBtn(e: any) {
+    function handleSaveBtn(e) {
 
         e.preventDefault();
 
@@ -82,7 +79,7 @@ export default function Modal(props:any) {
         }
     }
 
-    function handleModifyBtn(e: any) {
+    function handleModifyBtn(e) {
         e.preventDefault();
 
         axios.put(`https://don-forget-server.com/schedule/${window.sessionStorage.getItem("id")}`, {
@@ -116,22 +113,22 @@ export default function Modal(props:any) {
 
                 <form>
                     <div className="buttonGroup add_event">
-                        <button id="giveBtn" value="give" className={giveAndTake === "give" ? "selected" : "no"} onClick={(e:any) => {
+                        <button id="giveBtn" value="give" className={giveAndTake === "give" ? "selected" : "no"} onClick={(e) => {
                             e.preventDefault();
                             setGiveAndTake(e.target.value);
                         }}>give</button>
-                        <button id="take" value="take" className={giveAndTake === "take" ? "selected" : "no"} onClick={(e:any) => {
+                        <button id="take" value="take" className={giveAndTake === "take" ? "selected" : "no"} onClick={(e) => {
                             e.preventDefault();
                             setGiveAndTake(e.target.value);
                         }}>take</button>
                     </div>
 
                     <div className="buttonGroup modify_event">
-                        <button id="give" value="give" className={giveAndTake === "give" ? "selected" : "no"} onClick={(e:any) => {
+                        <button id="give" value="give" className={giveAndTake === "give" ? "selected" : "no"} onClick={(e) => {
                             e.preventDefault();
                             setGiveAndTake(e.target.value);
                         }}>give</button>
-                        <button id="take" value="take" className={giveAndTake === "take" ? "selected" : "no"} onClick={(e:any) => {
+                        <button id="take" value="take" className={giveAndTake === "take" ? "selected" : "no"} onClick={(e) => {
                             e.preventDefault();
                             setGiveAndTake(e.target.value);
                         }}>take</button>

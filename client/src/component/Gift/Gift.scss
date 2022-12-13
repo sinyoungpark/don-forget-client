@@ -1,4 +1,4 @@
-@import "../mixin";
+@import "../../mixin";
 
 @include desktop {
     .gift .full_page {
@@ -55,7 +55,7 @@
                 background-repeat: no-repeat;
                 background-size: 30px;
                 background-color: #FFE812;
-                background-image: url("../kakaoIcon.png");
+                background-image: url("../../kakaoIcon.png");
             }
         }
         
@@ -299,7 +299,7 @@
                 background-repeat: no-repeat;
                 background-size: 28px;
                 background-color: #FFE812;
-                background-image: url("../kakaoIcon.png");
+                background-image: url("../../kakaoIcon.png");
             }
         }
 
