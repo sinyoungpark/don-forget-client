@@ -46,6 +46,7 @@ export default function Signup() {
         type: question,
         password_answer: answer,
       });
+      alert("회원가입을 축하드립니다.")
       setSuccess(true);
     } else {
       validate(email) ? setWrongEmail(false) : setWrongEmail(true);
@@ -61,10 +62,9 @@ export default function Signup() {
   return (
     <div className="signup">
       {success && <Navigate to="/signin" replace={true} />}
-      <div className="signup_content">
-        <img className="logo" src={Logo} alt="Logo_don-forget" />
+      <img className="logo" src={Logo} alt="Logo_don-forget" />
         <h1>회원가입</h1>
-        <form className="inputValue">
+        <form className="signup_form">
           <input
             type="text"
             name="email"
@@ -111,8 +111,6 @@ export default function Signup() {
             label="비밀번호 찾기 힌트 답"
             onChange={(e) => setAnswer(e.target.value)}
           />
-          <input name="agree" type="checkbox"></input>
-          <label htmlFor="agree">개인정보 수집 동의</label>
           <div className={wrongEmail ? "alert" : "none"}>
             <strong> ⚠️ &nbsp; Error</strong>
             유효하지 않은 이메일입니다.
@@ -135,7 +133,6 @@ export default function Signup() {
           </div>
           <button onClick={signUpBtnHandler}>회원가입</button>
         </form>
-      </div>
     </div>
   );
 }
