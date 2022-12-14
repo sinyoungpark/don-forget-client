@@ -9,10 +9,11 @@ import Modal from "../Modal";
 import { useContext } from "react";
 import { UserContext } from "../../App";
 import { ScheduleData } from "../../fakeDB";
-import kakaobank from "../../kakaobank.png";
-import toss from "../../toss.png";
+import kakaobank from "../img/kakaobank.png";
+import toss from "../img/toss.png";
 import Search from "../Search";
 import ModifyModal from "../Modal/ModifyModal";
+import { Navigate } from "react-router-dom";
 import Item from "./Item";
 
 export default function Schedule() {
@@ -44,6 +45,7 @@ export default function Schedule() {
 
   return (
     <div className="schedule">
+      {!user.id && <Navigate to="/" replace={true} />}
       <div className="gradient"></div>
       <h1>
         경조사 기록
@@ -88,7 +90,9 @@ export default function Schedule() {
         + 경조사 추가하기
       </button>
       <ul className={isSchedule ? "schedule_list" : "none"}>{scheduleEl}</ul>
-      {isOpenModal && <Modal userId={user.id} setIsOpenModal={setIsOpenModal} />}
+      {isOpenModal && (
+        <Modal userId={user.id} setIsOpenModal={setIsOpenModal} />
+      )}
       <Container className="transferIcon">
         <Link href="kakaobank://" tooltip="카카오뱅크" className="kakao" />
         <Link href="supertoss://" tooltip="토스" className="toss" />

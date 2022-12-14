@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Signup.scss";
-import Logo from "../../Logo.png";
+import Logo from "../img/Logo.png";
 import { User } from "../../fakeDB";
 import { Navigate, Link } from "react-router-dom";
 

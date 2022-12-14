@@ -3,7 +3,7 @@ import React from "react";
 import { useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { User } from "../../fakeDB";
-import Logo from "../../Logo.png";
+import Logo from "../img/Logo.png";
 import "./Signin.scss";
 import GoogleSignUp from "./Google";
 import FacebookSignUp from "./Facebook";
@@ -31,6 +31,11 @@ export default function Signin() {
       window.sessionStorage.setItem("id", user.id);
       window.sessionStorage.setItem("email", user.email);
       window.sessionStorage.setItem("name", user.name);
+      setUser({
+        id : user.id, 
+        email : user.email, 
+        name : user.name
+      });
     } else {
       setError(true);
     }

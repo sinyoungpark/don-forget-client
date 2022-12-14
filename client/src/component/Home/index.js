@@ -9,11 +9,12 @@ import { Alert, AlertTitle } from "@material-ui/lab";
 import IconButton from "@material-ui/core/IconButton";
 import Collapse from "@material-ui/core/Collapse";
 import CloseIcon from "@material-ui/icons/Close";
-import kakaobank from "../../kakaobank.png";
-import toss from "../../toss.png";
+import kakaobank from "../img/kakaobank.png";
+import toss from "../img/toss.png";
 import { NextAlert, ScheduleData } from "../../fakeDB";
 import { UserContext } from "../../App";
 import Modal from "../Modal";
+import { Navigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   icon: {
@@ -204,7 +205,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      {console.log(data)}
+      {!user.id && <Navigate to="/" replace={true} />}
       <div className="full_page">
         <div className={openSchedule ? "sideCalendar" : "Calendar"}>
           <div className="head">
