@@ -74,6 +74,8 @@ export default function Schedule() {
           userId={user.id}
           setSchedule={setSchedule}
           isSchedule={isSchedule}
+          data={data}
+          setData={setData}
         />
       </div>
       <button
