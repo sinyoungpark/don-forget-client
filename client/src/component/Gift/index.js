@@ -8,6 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import CheckCircleIcon from '@material-ui/icons/CheckCircle';
 import CheckCircleOutlineIcon from '@material-ui/icons/CheckCircleOutline';
+import { GiftItems } from '../../fakeDB';
 
 export default function Gift() {
 
@@ -55,20 +56,13 @@ export default function Gift() {
 
   useEffect(() => {
     // 추천선물 받아오기
-    axios.get(`https://don-forget-server.com/gift/recommandGift`)
-      .then((res) => {
-        console.log(res.data);
-        return res.data
-      })
-      .then((data) => setTopList(data));
+    const data = GiftItems.sort((a,b) => a.count - b.count);
+    setTopList(data);
   }, [])
 
   // 클릭해서 조회수 올리기!
   const clickProduct = (data) => {
-    axios.post(`https://don-forget-server.com/gift/clickProduct`, data)
-      .then((res) => {
-        console.log("message:", res.data.message);
-      })
+    
   }
 
   // 검색버튼 클릭으로 직접 키워드 검색
@@ -166,6 +160,9 @@ export default function Gift() {
 
   return (
     <div className="gift">
+      {
+        console.log(searchKeyword)
+      }
       <div className="full_page">
         <h1>이런 선물 어때요?</h1>
         <input type="text" className="search_input"
@@ -277,7 +274,8 @@ export default function Gift() {
 
                   )
                 })}
-              </InfiniteScroll>}
+              </InfiniteScroll>
+              }
           </>
             :
             <div className="giftList">
@@ -313,7 +311,7 @@ export default function Gift() {
                       </div>
                       <div className="giftList_text">
                         <div className="giftList_price">{price}원</div>
-                        <div className="giftList_category">조회수 {data.clickCount}</div>
+                        <div className="giftList_category">조회수 {data.count}</div>
                       </div>
                     </div>
                   </div>
