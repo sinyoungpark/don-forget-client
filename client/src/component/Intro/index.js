@@ -1,7 +1,7 @@
 import React from "react";
 import { useContext } from "react";
 import { Navigate } from "react-router-dom";
-import Logo from "../../Logo.png";
+import Logo from "../img/Logo.png";
 import "./Intro.scss";
 import { UserContext } from "../../App";
 
