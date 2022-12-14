@@ -2,7 +2,7 @@ import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Responsi
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function Chart(props) {
+function Chart() {
 
   const [statistics, setStatistics] = useState([]);
   const data = [
