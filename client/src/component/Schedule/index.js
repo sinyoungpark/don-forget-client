@@ -34,8 +34,9 @@ export default function Schedule() {
 
   const scheduleEl =
     data &&
-    data.map((curData) => (
+    data.map((curData, idx) => (
       <Item
+        key={idx}
         data={curData}
         userId={user.id}
         schedules={data}

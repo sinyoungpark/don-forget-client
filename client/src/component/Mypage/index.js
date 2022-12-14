@@ -2,14 +2,12 @@ import React, { useState } from "react";
 import "./MyPage.scss";
 import axios from "axios";
 import Chart from "./Mypage_Chart";
-import cookie from "react-cookies";
 import CsvDownloader from "react-csv-downloader";
 import { makeStyles } from "@material-ui/core/styles";
 import DescriptionIcon from "@material-ui/icons/Description";
 import { useContext } from "react";
 import { UserContext } from "../../App";
 import { Navigate } from "react-router-dom";
-import { User } from "../../fakeDB";
 import PasswordModal from "./PasswordModal";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function MyPage(props) {
+export default function MyPage() {
   const classes = useStyles();
 
   const [user, setUser] = useContext(UserContext);
@@ -32,10 +30,6 @@ export default function MyPage(props) {
   const [openName, setOpenName] = useState(false);
   const [changeName, setChangeName] = useState("");
   const [openPassword, setOpenPassword] = useState(false);
-  const [isRightPassword, setIsRightPassword] = useState(false);
-  const [oldPassword, setOldPassword] = useState("");
-  const [newPassword, setNewPassword] = useState("");
-  const [newPasswordCheck, setNewPasswordCheck] = useState("");
 
   const signoutHandler = (e) => {
     e.preventDefault();
@@ -48,52 +42,6 @@ export default function MyPage(props) {
     setOpenName(false);
     setName(changeName);
     window.sessionStorage.getItem("name", changeName);
-  };
-
-  const checkPasswordHandler = () => {
-    axios
-      .post(
-        `https://don-forget-server.com/user/confirmuser/${window.sessionStorage.getItem(
-          "id"
-        )}`,
-        {
-          password: oldPassword,
-        }
-      )
-      .then((res) => {
-        console.log(res.data);
-        // 새 비밀번호 입력 창 띄움
-        setIsRightPassword(true);
-      })
-      .catch((err) => {
-        console.log(err);
-        alert("비밀번호가 다릅니다.");
-      });
-  };
-
-  const changePasswordHandler = () => {
-    if (newPassword === newPasswordCheck) {
-      axios
-        .post(
-          `https://don-forget-server.com/user/changepassword/${window.sessionStorage.getItem(
-            "id"
-          )}`,
-          {
-            password: newPassword,
-          }
-        )
-        .then((res) => {
-          console.log(res.data);
-          alert("비밀번호가 변경되었습니다.");
-        })
-        .then(() => {
-          setOpenPassword(false);
-          setIsRightPassword(false);
-        })
-        .catch((err) => console.log(err));
-    } else {
-      alert("비밀번호가 일치하지 않습니다.");
-    }
   };
 
   const columns = [
@@ -120,23 +68,6 @@ export default function MyPage(props) {
   ];
 
   const list = [];
-  axios
-    .get(
-      `https://don-forget-server.com/schedule/${window.sessionStorage.getItem(
-        "id"
-      )}`
-    )
-    .then((res) => {
-      res.data.map((element) => {
-        list.push({
-          날짜: element.date,
-          "경조사 종류": element.type,
-          "경조사 대상": element.event_target,
-          "선물 또는 현금": element.gift[1],
-          "give 또는 take": element.giveandtake,
-        });
-      });
-    });
 
   return (
     <div className="mypage">
@@ -201,7 +132,9 @@ export default function MyPage(props) {
             </button>
           </div>
         </div>
-        {openPassword && <PasswordModal setOpenPassword={setOpenPassword} userId={user.id}/>}
+        {openPassword && (
+          <PasswordModal setOpenPassword={setOpenPassword} userId={user.id} />
+        )}
       </div>
     </div>
   );

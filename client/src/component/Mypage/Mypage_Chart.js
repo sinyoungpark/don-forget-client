@@ -20,25 +20,25 @@ function Chart() {
     { name: '12', gift: 0, money: 0 },
   ];
 
-  useEffect(() => {
-    axios.get(`https://don-forget-server.com/schedule/statistics/${window.sessionStorage.getItem("id")}`)
-      .then((res) => {
-        const Year_Data = res.data;
-        console.log('Year_Data : ', Year_Data);
-        for (let month in Year_Data) {
-          console.log('month : ', month);
-          for (let i = 0; i < data.length; i++) {
-            const element = data[i];
-            if (element.name === month) {
-              element["gift"] = Year_Data[month].gift;
-              element.money = (Year_Data[month].money / 10000);
-            }
-          }
-        }
-        setStatistics(data);
-      })
-      .then(() => { console.log("statistics:", statistics) })
-  }, [])
+  // useEffect(() => {
+  //   axios.get(`https://don-forget-server.com/schedule/statistics/${window.sessionStorage.getItem("id")}`)
+  //     .then((res) => {
+  //       const Year_Data = res.data;
+  //       console.log('Year_Data : ', Year_Data);
+  //       for (let month in Year_Data) {
+  //         console.log('month : ', month);
+  //         for (let i = 0; i < data.length; i++) {
+  //           const element = data[i];
+  //           if (element.name === month) {
+  //             element["gift"] = Year_Data[month].gift;
+  //             element.money = (Year_Data[month].money / 10000);
+  //           }
+  //         }
+  //       }
+  //       setStatistics(data);
+  //     })
+  //     .then(() => { console.log("statistics:", statistics) })
+  // }, [])
 
 
   return (

@@ -47,7 +47,6 @@ export default function Gift() {
   useEffect(() => {
     // width가 변화할 때 함수 실행 됨
     updateWidth();
-    console.log("addListNum:", addListNum)
     window.addEventListener("resize", updateWidth);
     return () => {
       window.removeEventListener("resize", updateWidth)
@@ -75,7 +74,6 @@ export default function Gift() {
     setTimeout(() => {
       axios.post(`https://don-forget-server.com/gift/find/?text=${searchKeyword}`)
         .then((res) => {
-          console.log("res.data:", res.data);
           let fourItems = res.data.slice(preItems, items);
           //updating data
           setBreweries(fourItems);
@@ -126,7 +124,6 @@ export default function Gift() {
       setTimeout(() => {
         axios.get(`https://don-forget-server.com/gift/imoticonList`)
           .then((res) => {
-            console.log("res.data:", res.data.items);
             setEmoticon(res.data.items);
           })
       }, 0);
@@ -160,9 +157,6 @@ export default function Gift() {
 
   return (
     <div className="gift">
-      {
-        console.log(searchKeyword)
-      }
       <div className="full_page">
         <h1>이런 선물 어때요?</h1>
         <input type="text" className="search_input"

@@ -87,9 +87,9 @@ export default function Home() {
 
   const makeWeek = () => {
     const week = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
-    const week_Calendar = week.map((day) => {
+    const week_Calendar = week.map((day, idx) => {
       return (
-        <div className="box">
+        <div className="box" key={idx}>
           <span className="text">{day}</span>
         </div>
       );
@@ -115,6 +115,7 @@ export default function Home() {
     const listMonthSpan = Calendar.map((mon, index) => {
       return (
         <span
+        key={index}
           onClick={() => {
             setSelectedDate(moment().year(year).month(index).date(1));
             setOpenSelectMonth(false);
