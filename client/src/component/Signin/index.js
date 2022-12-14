@@ -32,20 +32,33 @@ export default function Signin() {
       window.sessionStorage.setItem("email", user.email);
       window.sessionStorage.setItem("name", user.name);
       setUser({
-        id : user.id, 
-        email : user.email, 
-        name : user.name
+        id: user.id,
+        email: user.email,
+        name: user.name,
       });
     } else {
       setError(true);
     }
   };
 
+  const handleRegister = (e) => {
+    e.preventDefault();
+    window.sessionStorage.setItem("id", 1);
+    window.sessionStorage.setItem("email", "example@naver.com");
+    window.sessionStorage.setItem("name", "example");
+    setUser({
+      id: 1,
+      email: "example@naver.com",
+      name: "example",
+    });
+  };
 
   return (
     <div className="signin">
       {user.id && <Navigate to="/" replace={true} />}
-      <Link to="/" replace={true}><img src={Logo} alt="Logo_dont-forget" className="logo" /></Link>
+      <Link to="/" replace={true}>
+        <img src={Logo} alt="Logo_dont-forget" className="logo" />
+      </Link>
       <h1>로그인</h1>
       <form className="login_form">
         <input
@@ -66,6 +79,9 @@ export default function Signin() {
         </div>
         <button className="login_btn" onClick={(e) => handleLoginBtn(e)}>
           로그인
+        </button>
+        <button className="login_btn" onClick={(e) => handleRegister(e)}>
+          체험해보기
         </button>
         <div className="bottom">
           <span
