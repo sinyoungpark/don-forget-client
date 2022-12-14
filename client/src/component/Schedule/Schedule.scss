@@ -1,172 +1,160 @@
 @import "../../mixin";
 
-@include desktop {
-    .schedule{
-        padding: 10vh 8%;
-        overflow: hidden;
-        max-height: 80vh;
-        position : relative;
-        
-        h1{
+.schedule{
+    padding: 10vh 8%;
+    overflow: hidden;
+    max-height: 80vh;
+    position : relative;
+    
+    h1{
+        color : #4a4a4a;
+        font-size: 1.5rem;
+        position: absolute;
+        // margin: 0;
+        z-index: 2;
+    }
+
+    ul{
+        list-style:none;
+    }
+
+    .date_li {
+        display: flex;
+    }
+    
+    .schedule_list{
+        padding: 0;
+        height: 450px;
+        overflow: auto;
+        margin-top : 1rem;
+
+        /* date css */
+        .date{
             color : #4a4a4a;
-            font-size: 1.5rem;
-            position: absolute;
-            // margin: 0;
-            z-index: 2;
-        }
+            margin-top: auto;
+            margin-bottom: auto;
+            font-size: 1rem;
+        } 
+        /* schedule list css */
+        li{
+            border: 1px solid rgb(151, 149, 149);
+            width: 80%;
+            padding: 10px 30px;
+            border-radius: 40px;
+            margin: 5px;
+            margin-left: 4%;
+            box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.1);
 
-        // .gradient{
-        //     display: block;
-        //     position: fixed;
-        //     width: 80%;
-        //     height: 100vh;
-        //     top: 10px;
-        //     background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 15%, rgba(255,255,255,0) 20%, rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,1) 95%, rgba(255,255,255,1) 100%);
-        //     pointer-events: none;
-        //     z-index: 1;
-        // }
+            /* 수정, 삭제 button css*/
 
-        ul{
-            list-style:none;
-        }
-
-        .date_li {
-            display: flex;
-        }
-        
-        .schedule_list{
-            padding: 0;
-            height: 450px;
-            overflow: auto;
-
-            /* date css */
-            .date{
-                color : #4a4a4a;
-                margin-top: auto;
-                margin-bottom: auto;
-                font-size: 1rem;
-            } 
-            /* schedule list css */
-            li{
-                border: 1px solid rgb(151, 149, 149);
-                width: 80%;
-                padding: 10px 30px;
-                border-radius: 40px;
-                margin: 5px;
-                margin-left: 4%;
-                box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.1);
-
-                /* 수정, 삭제 button css*/
-
-                .li_button{
-                    display: none;
-                }
-                &:hover{
-                    // background-color: #d1dfff;
-                    // color : white;
-                    .li_button{
-                        display : flex;
-                        float: right;
-                        border: none;
-                        background-color:  white;
-                        color: rgb(184, 184, 184);
-                        font-size: 0.9rem;
-                        cursor: pointer;
-                    }
-                }
+            .li_button{
+                display: none;
             }
-
-            /* schedule list안에 내용 css 담당 */
-            span{
-                color : #4a4a4a;
-                margin-right: 1vh;
-                font-size: 0.9rem;
-                padding-left: 10;
-                &.결혼식 {
-                    font-weight: 900;
-                    color: #FFCECE;
-                    border-left: 3px solid #FFCECE;
-                }
-                &.생일 {
-                    font-weight: 900;
-                    color: #FFB65B;
-                    border-left: 3px solid #FFB65B;
-                }
-                &.장례식 {
-                    font-weight: 900;
-                    color: #737272;
-                    border-left: 3px solid #737272;
-                }
-                &.집들이 {
-                    font-weight: 900;
-                    color: #6BACF8;
-                    border-left: 3px solid #6BACF8;
-                }
-                &.취직 {
-                    font-weight: 900;
-                    color: #FFF00C;
-                    border-left: 3px solid #FFF00C;
-                }
-                &.입학 {
-                    font-weight: 900;
-                    color: #A4F256;
-                    border-left: 3px solid #A4F256;
-                }
-                &.출산 {
-                    font-weight: 900;
-                    color: #FF6666;
-                    border-left: 3px solid #FF6666;
-                }
-                &.돌잔치 {
-                    font-weight: 900;
-                    color: #97ECCF;
-                    border-left: 3px solid #97ECCF;
-                }
-                &.기념일 {
-                    font-weight: 900;
-                    color: #E1C5FF;
-                    border-left: 3px solid #E1C5FF;
-                }
-                &.기타 {
-                    font-weight: 900;
-                    color: #CECECE;
-                    border-left: 3px solid #CECECE;
-                }
-            }
-            .type{
-                color:#4a4a4a; 
-                font-size: 0.9rem;
-            }
-            .gift{
-                color: rgb(184, 184, 184);
-                font-size: 0.9rem;
-            }
-        }
-        
-        /* add schedule button css */
-        .addBtn{
-            position: fixed;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            border : none;
-            right: 10%;
-            color: white;
-            background-color: #3b23a6;
-            // font-size: 1.5rem;
-            // outline:none;
             &:hover{
-                cursor: pointer;
-                background-color: #b5b5b5;
+                // background-color: #d1dfff;
+                // color : white;
+                .li_button{
+                    display : flex;
+                    float: right;
+                    border: none;
+                    background-color:  white;
+                    color: rgb(184, 184, 184);
+                    font-size: 0.9rem;
+                    cursor: pointer;
+                }
             }
         }
-        .addBtnTwo{
-            display: none;
+
+        /* schedule list안에 내용 css 담당 */
+        span{
+            color : #4a4a4a;
+            margin-right: 1vh;
+            font-size: 0.9rem;
+            padding-left: 10;
+            &.결혼식 {
+                font-weight: 900;
+                color: #FFCECE;
+                border-left: 3px solid #FFCECE;
+            }
+            &.생일 {
+                font-weight: 900;
+                color: #FFB65B;
+                border-left: 3px solid #FFB65B;
+            }
+            &.장례식 {
+                font-weight: 900;
+                color: #737272;
+                border-left: 3px solid #737272;
+            }
+            &.집들이 {
+                font-weight: 900;
+                color: #6BACF8;
+                border-left: 3px solid #6BACF8;
+            }
+            &.취직 {
+                font-weight: 900;
+                color: #FFF00C;
+                border-left: 3px solid #FFF00C;
+            }
+            &.입학 {
+                font-weight: 900;
+                color: #A4F256;
+                border-left: 3px solid #A4F256;
+            }
+            &.출산 {
+                font-weight: 900;
+                color: #FF6666;
+                border-left: 3px solid #FF6666;
+            }
+            &.돌잔치 {
+                font-weight: 900;
+                color: #97ECCF;
+                border-left: 3px solid #97ECCF;
+            }
+            &.기념일 {
+                font-weight: 900;
+                color: #E1C5FF;
+                border-left: 3px solid #E1C5FF;
+            }
+            &.기타 {
+                font-weight: 900;
+                color: #CECECE;
+                border-left: 3px solid #CECECE;
+            }
+        }
+        .type{
+            color:#4a4a4a; 
+            font-size: 0.9rem;
+        }
+        .gift{
+            color: rgb(184, 184, 184);
+            font-size: 0.9rem;
         }
     }
-    .transferIcon {
-      display: none;
+    
+    /* add schedule button css */
+    .addBtn{
+        position: fixed;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border : none;
+        right: 10%;
+        color: white;
+        background-color: #3b23a6;
+        // font-size: 1.5rem;
+        // outline:none;
+        &:hover{
+            cursor: pointer;
+            background-color: #b5b5b5;
+        }
     }
+    .addBtnTwo{
+        display: none;
+    }
+}
+.transferIcon {
+  display: none;
 }
 
 @keyframes list{
