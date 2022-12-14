@@ -53,14 +53,21 @@ export default function Search({
 
   const searchEle =
     searchData &&
-    searchData.map((curData) => (
-      <Item data={curData} userId={userId} schedules={data} setData={setData} />
+    searchData.map((curData, idx) => (
+      <Item
+        key={idx}
+        data={curData}
+        userId={userId}
+        schedules={data}
+        setData={setData}
+      />
     ));
 
   const tagEle =
     tags &&
-    tags.map((tag) => (
+    tags.map((tag, idx) => (
       <button
+        key={idx}
         className={tag}
         onClick={(e) => tagFiltering(e)}
         value={tag}

@@ -65,71 +65,24 @@
   }
 }
 
-
-
-@include mobile {
-  body {
-    // overflow-y: ; 
-    overflow-x: scroll;
-  }
-
-  /* 흰 배경 아래로 */
-  .background {
-    position: fixed;
-    display: table;
-    width: 100%;
-    height: 90vh;
-    border-radius: 0px;
-    background-color: #ffffff;
-    z-index: 3;
-    top: 10vh;
-  }
-
-  /* 흰 배경 전체(로그인, 회원가입) */
-  .fullBackground {
-    position: absolute;
-    display: table;
-    width: 100%;
-    height: 90vh;
-    border-radius: 0px;
-    background-color: #ffffff;
-    z-index: 1;
-    animation-name: fullBackground;
-    animation-duration: 2s;
-  }
-
-  /* fullBackground animation*/
-  @keyframes fullBackground {
-    0% {
-      top: 14%;
+@media screen and (max-width : 800px){
+  .app{
+    .fullBackground{
+      border-radius: 0px;
+      min-height : 100%;
     }
-
-    25% {
-      top: 0%;
+    .sideBackground{
+      animation : none;
+      position : static;
+      width : 100%;
+      padding : 1rem;
+      height : 100%;
+      padding-bottom : 100px;
     }
-  }
-
-  /* 흰 배경 옆으로 */
-  .sideBackground {
-    position: absolute;
-    display: table;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff;
-    z-index: 3;
-    top: -20px;
-    animation-name: sideBackground;
-    // animation-duration: 8s;
-  }
-
-  /* sideBackground animation*/
-  @keyframes sideBackground {
-    0% {
-      top: 100%;
-    }
-
-    25% {
-      top: 0%;
+    .background{
+      border-radius: 0px;
     }
   }
 }
+
+

@@ -1,104 +1,117 @@
 @import "../../mixin";
 
-.signup{
-    min-height : 100%;
-    display : flex;
+.signup {
+    min-height: 100%;
+    display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top : 7rem;
+    padding-top: 7rem;
 
-    .logo{
+    .logo {
         width: 60px;
     }
 
-    h1{
+    h1 {
         text-align: center;
         font-size: 1.3rem;
         font-weight: bold;
         color: #4a4a4a;
-        margin : 20px 0;
+        margin: 20px 0;
     }
 
     .signup_form {
-        width : 400px;
-        display : flex;
+        width: 400px;
+        display: flex;
         flex-direction: column;
+
         select {
             display: block;
             width: 100%;
             height: 32px;
-            margin-top : 35px;
+            margin-top: 35px;
             border: none;
             border-bottom: 1px solid #4a4a4a;
             font-size: 15px;
-            &:focus{
-                border-color : #3b23a6;
+
+            &:focus {
+                border-color: #3b23a6;
             }
         }
+
         input[type="checkbox"] {
             display: inline-block;
             width: 12px;
             height: 12px;
             margin: 4px;
         }
+
         label[for="agree"] {
             display: inline-block;
             font-size: 0.8rem;
             color: #4a4a4a;
             margin: 1rem 0 0 0;
         }
+
         button {
-            width:100%;
+            width: 100%;
             margin-top: 20px;
-            color:white;
+            color: white;
             background-color: #3b23a6;
             border-radius: 5px;
             padding: 12px;
-            border:none;
-            &:hover{
-                background-color:#3436ad;
+            border: none;
+
+            &:hover {
+                background-color: #3436ad;
                 cursor: pointer;
                 box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
             }
         }
-        input[type="text"], input[type="password"]{
+
+        input[type="text"],
+        input[type="password"] {
             margin-top: 15px;
             border: none;
             border-bottom: 1px solid #4a4a4a;
             font-size: 15px;
             outline: none;
             height: 50px;
-            padding-top : 20px;
+            padding-top: 20px;
 
-            &:focus{
-                border-color : #3436ad;
+            &:focus {
+                border-color: #3436ad;
             }
-            &::placeholder{
+
+            &::placeholder {
                 position: relative;
                 top: 0px;
             }
-            &:focus::placeholder{
-                color : #3b23a6;
+
+            &:focus::placeholder {
+                color: #3b23a6;
                 font-size: 13px;
-                position :relative;
-                top : -30px;
-                -webkit-transition: all .15s ;
-                transition: all .15s ;
+                position: relative;
+                top: -30px;
+                -webkit-transition: all .15s;
+                transition: all .15s;
             }
         }
-        .alert{
+
+        .alert {
             color: rgb(117, 33, 12);
             border-radius: 6px;
             background-color: rgb(255, 215, 215);
             margin-top: 20px;
-            padding : 7px 30px;
+            padding: 7px 30px;
             font-size: 15px;
-            .alertIcon{
+
+            .alertIcon {
                 background-color: white;
-                color : rgb(241, 63, 63);
+                color: rgb(241, 63, 63);
                 display: inline-block;
             }
-            strong{
+
+            strong {
                 font-size: 15px;
                 margin: 10px;
             }
@@ -106,118 +119,13 @@
     }
 }
 
-@include mobile {
-    /*전체정렬 signin 컴포넌트*/
-    .signup{
-        padding-top: 30px;
-        display : flex;
-        flex-direction: column;
-        align-items: center;
-        /* h1 login css */
-        h1{
-            text-align: center;
-            font-size: 1.1rem;
-            font-weight: bold;
-            color: #4a4a4a;
-            margin: 0;
-        }
-        .logo {
-            width: 50px;
-            display: block;
-            margin: 10px auto;
-        }
-    }
-    .signup_content {
-        .inputValue {
-            position: relative;
-            left : 10%;
-            top : 40px;
-            width : 300px;
-            border-radius: 0;
-            select {
-                display: block;
-                width: 80%;
-                height: 20%;
-                margin-top : 10%;
-                border: none;
-                border-bottom: 1px solid #4a4a4a;
-                font-size: 13px;
-                &:focus{
-                    border-color : #3b23a6;
-                }
-            }
-            input[type="checkbox"] {
-                display: inline-block;
-                width: 12px;
-                height: 12px;
-                margin: 4px;
-            }
-            label[for="agree"] {
-                display: inline-block;
-                font-size: 0.8rem;
-                color: #4a4a4a;
-                margin: 1rem 0 0 0;
-            }
-            button {
-                display: block;
-                width: 80%;
-                margin-top: 20px;
-                color:white;
-                background-color: #3b23a6;
-                border-radius: 5px;
-                padding: 6px;
-                border:none;
-                font-size: 15px;
-                &:hover{
-                    background-color:#3436ad;
-                    cursor: pointer;
-                    box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
-                }
-            }
-            input[type="text"], input[type="password"]{
-                display: block;
-                margin-top: 10px;
-                border: none;
-                border-bottom: 1px solid #4a4a4a;
-                width: 80%;
-                font-size: 12px;
-                outline: none;
-                height: 30px;
-                padding-top : 6px;
-    
-                &:focus{
-                    border-color : #3436ad;
-                }
-                &::placeholder{
-                    position: relative;
-                    top: 0px;
-                }
-                &:focus::placeholder{
-                    color : #3b23a6;
-                    font-size: 13px;
-                    position :relative;
-                    top : -30px;
-                    -webkit-transition: all .15s ;
-                    transition: all .15s ;
-                }
-            }
+@media screen and (max-width : 800px) {
+    .signup {
+        padding: 3rem 0;
+        .signup_form{
+            width : 70%;
             .alert{
-                color: rgb(117, 33, 12);
-                border-radius: 6px;
-                background-color: rgb(255, 215, 215);
-                padding: 0px 0px;
-                margin-top: 4px;
-                font-size: 11px;
-                width : 90%;
-                .alertIcon{
-                    background-color: white;
-                    color : rgb(241, 63, 63);
-                    display: inline-block;
-                }
-                strong{
-                    font-size: 15px;
-                    margin: 10px;
-                }
+                padding : 7px 0;
             }
         }
     }
