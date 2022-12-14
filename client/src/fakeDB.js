@@ -19,15 +19,15 @@ export const NextAlert = {
   ]
 }
 
-export const Schedule = {
+export const ScheduleData = {
   1: [
     {
       id : 1,
-      date: "2022-1-20",
+      date: "2022-01-20",
       type: types[1],
       event_target: "개구리",
       gift: ["현금", "100000"],
-      giveandtake: "giveandtake",
+      giveandtake: "give",
     },
     {
       id : 2,
@@ -35,15 +35,15 @@ export const Schedule = {
       type: types[7],
       event_target: "친구1",
       gift: ["현금", "100000"],
-      giveandtake: "giveandtake",
+      giveandtake: "take",
     },
     {
       id : 3,
       date: "2022-12-14",
       type: types[3],
       event_target: "친구 지연이",
-      gift: ["현금", "100000"],
-      giveandtake: "giveandtake",
+      gift: ["선물", "가방"],
+      giveandtake: "give",
     },
   ],
   2 : [
