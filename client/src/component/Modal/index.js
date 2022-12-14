@@ -1,9 +1,9 @@
 import React from "react";
 import { useState } from "react";
-import { Schedule } from "../../fakeDB";
+import { ScheduleData } from "../../fakeDB";
 import "./Modal.scss";
 
-export default function Modal({ isOpen, setModal, userId }) {
+export default function Modal({ setIsOpenModal, userId }) {
   const [giveandtake, setGiveAndTake] = useState("");
   const [date, setDate] = useState("");
   const [target, setTarget] = useState("");
@@ -15,7 +15,7 @@ export default function Modal({ isOpen, setModal, userId }) {
   const addScheduleHandler = (e) => {
     e.preventDefault();
     if (target && type && gift && giveandtake && giftType && date) {
-      Schedule[userId].push({
+      ScheduleData[userId].push({
         date: date,
         event_target: target,
         type: type,
@@ -23,20 +23,18 @@ export default function Modal({ isOpen, setModal, userId }) {
         giveandtake: giveandtake,
       });
 
-      console.log(Schedule);
-
-      setModal(false);
+      setIsOpenModal(false);
     } else {
       alert("입력해주세요");
     }
   };
 
   return (
-    <div className={isOpen ? "addModal" : "none"}>
+    <div className="modal">
       <div className="content">
-        <h3 className="add_event">경조사 추가하기</h3>
+        <h3>경조사 추가하기</h3>
         <form>
-          <div className="buttonGroup add_event">
+          <div className="buttonGroup">
             <button
               id="giveBtn"
               value="give"
@@ -59,26 +57,25 @@ export default function Modal({ isOpen, setModal, userId }) {
             >
               take
             </button>
-            <input
-              className="add_event"
-              type="date"
-              id="birthday"
-              name="birthday"
-              onChange={(e) => setDate(e.target.value)}
-              data-label="경조사 날짜 *"
-            />
-
-            <input
-              className="add_event"
-              type="text"
-              placeholder="경조사 대상(사람 이름) *"
-              data-label="event target"
-              onChange={(e) => setTarget(e.target.value)}
-            />
           </div>
 
+          <input
+            type="date"
+            id="birthday"
+            name="birthday"
+            onChange={(e) => setDate(e.target.value)}
+            data-label="경조사 날짜 *"
+          />
+
+          <input
+            type="text"
+            placeholder="경조사 대상(사람 이름) *"
+            data-label="event target"
+            onChange={(e) => setTarget(e.target.value)}
+          />
+
           <select
-            className="event_type add_event"
+            className="event_type"
             onChange={(e) => setType(e.target.value)}
           >
             <option value="" disabled selected>
@@ -100,7 +97,7 @@ export default function Modal({ isOpen, setModal, userId }) {
           <div className="giftInput">
             <select
               name="gift_type"
-              className="gift_type add_event"
+              className="gift_type"
               value={giftType}
               onChange={(e) => {
                 // console.log('value : ',e.target.value)
@@ -128,18 +125,20 @@ export default function Modal({ isOpen, setModal, userId }) {
             />
           </div>
 
-          <button
-            className="add_event"
+        <div className="bottom-btn">
+        <button
+            className="cancel-btn"
             onClick={(e) => {
               e.preventDefault();
-              setModal(false);
+              setIsOpenModal(false);
             }}
           >
             취소
           </button>
-          <button className="add_event" onClick={(e) => addScheduleHandler(e)}>
+          <button className="submit-btn" onClick={(e) => addScheduleHandler(e)}>
             저장하기
           </button>
+        </div>
         </form>
       </div>
     </div>
