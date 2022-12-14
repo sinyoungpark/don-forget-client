@@ -4,10 +4,10 @@ import './Search.scss';
 import Avatar from '@material-ui/core/Avatar';
 import SearchIcon from '@material-ui/icons/Search';
 import axios from "axios";
-import Modal from "./Modal";
+import Modal from "../Modal";
 
 
-function Search(props) {
+export default function Search(props) {
   const { userId, setUseEffect, controllUseEffect, setSchedule, isSchedule } = props;
 
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -162,4 +162,3 @@ function Search(props) {
   );
 }
 
-export default withRouter(Search);

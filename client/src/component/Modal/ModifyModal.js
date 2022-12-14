@@ -1,42 +1,43 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
+import { useContext } from "react";
+import { UserContext } from "../../App";
 import { ScheduleData } from "../../fakeDB";
 import "./Modal.scss";
 
-export default function Modal({ setIsOpenModal, userId }) {
-  const [giveandtake, setGiveAndTake] = useState("");
-  const [date, setDate] = useState("");
-  const [target, setTarget] = useState("");
-  const [type, setType] = useState("");
-  const [giftType, setGiftType] = useState("");
-  const [gift, setGift] = useState("");
-  const [inputType, setInputType] = useState("");
+export default function ModifyModal({ setIsOpenModal, data }) {
+  const [user] = useContext(UserContext);
 
-  const addScheduleHandler = (e) => {
+  /* post 요청 시 onchange 값들 */
+  const [date, setDate] = useState(data.date);
+  const [event_target, setEventTarget] = useState(data.event_target);
+  const [type, setType] = useState(data.type);
+  const [giftType, setGiftType] = useState(data.gift[0]);
+  const [giftValue, setGiftValue] = useState(data.gift[1]);
+  const [giveandtake, setGiveAndTake] = useState(data.giveandtake);
+
+  const handleModifyBtn = (e) => {
     e.preventDefault();
-    if (target && type && gift && giveandtake && giftType && date) {
-      ScheduleData[userId].push({
-        date: date,
-        event_target: target,
-        type: type,
-        gift: [giftType, gift],
-        giveandtake: giveandtake,
-      });
+    const resData = ScheduleData[user.id].find(
+      (schedule) => schedule.id === data.id
+    );
+    resData.date = date;
+    resData.event_target = event_target;
+    resData.type = type;
+    resData.giveandtake = giveandtake;
+    resData.gift = [giftType, giftValue];
+    console.log(resData);
 
-      setIsOpenModal(false);
-    } else {
-      alert("입력해주세요");
-    }
+    setIsOpenModal(false);
   };
 
   return (
     <div className="modal">
       <div className="content">
-        <h3>경조사 추가하기</h3>
+        <h3>경조사 수정하기</h3>
         <form>
           <div className="buttonGroup">
             <button
-              id="giveBtn"
+              id="give"
               value="give"
               className={giveandtake === "give" ? "selected" : "no"}
               onClick={(e) => {
@@ -58,25 +59,26 @@ export default function Modal({ setIsOpenModal, userId }) {
               take
             </button>
           </div>
-
           <input
             type="date"
             id="birthday"
+            defaultValue={date}
             name="birthday"
             onChange={(e) => setDate(e.target.value)}
             data-label="경조사 날짜 *"
           />
-
           <input
+            defaultValue={event_target}
             type="text"
             placeholder="경조사 대상(사람 이름) *"
             data-label="event target"
-            onChange={(e) => setTarget(e.target.value)}
+            onChange={(e) => setEventTarget(e.target.value)}
           />
 
           <select
             className="event_type"
             onChange={(e) => setType(e.target.value)}
+            defaultValue={type}
           >
             <option value="" disabled selected>
               {" "}
@@ -98,47 +100,36 @@ export default function Modal({ setIsOpenModal, userId }) {
             <select
               name="gift_type"
               className="gift_type"
-              value={giftType}
+              defaultValue={giftType}
               onChange={(e) => {
-                // console.log('value : ',e.target.value)
-                if (e.target.value === "선물") {
-                  setInputType("text");
-                } else if (e.target.value === "현금") {
-                  setInputType("number");
-                }
                 setGiftType(e.target.value);
               }}
             >
-              <option value="" disabled selected>
-                선물 / 현금
-              </option>
               <option value="선물">선물</option>
               <option value="현금">현금</option>
             </select>
             <input
-              className="gift_money add_event"
-              type={inputType}
+              className="gift_money"
+              type={type}
+              defaultValue={giftValue}
               placeholder="주거나 받은 내역 *"
               name="input_give_and_take"
               data-label="주거나 받은 내역(선물/현금)"
-              onChange={(e) => setGift(e.target.value)}
+              onChange={(e) => setGiftValue(e.target.value)}
             />
           </div>
 
-        <div className="bottom-btn">
-        <button
-            className="cancel-btn"
-            onClick={(e) => {
-              e.preventDefault();
-              setIsOpenModal(false);
-            }}
-          >
-            취소
-          </button>
-          <button className="submit-btn" onClick={(e) => addScheduleHandler(e)}>
-            저장하기
-          </button>
-        </div>
+          <div className="bottom-btn">
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setIsOpenModal();
+              }}
+            >
+              취소
+            </button>
+            <button onClick={(e) => handleModifyBtn(e)}>수정하기</button>
+          </div>
         </form>
       </div>
     </div>

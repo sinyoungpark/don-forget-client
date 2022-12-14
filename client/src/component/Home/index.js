@@ -11,7 +11,7 @@ import Collapse from "@material-ui/core/Collapse";
 import CloseIcon from "@material-ui/icons/Close";
 import kakaobank from "../../kakaobank.png";
 import toss from "../../toss.png";
-import { NextAlert, Schedule } from "../../fakeDB";
+import { NextAlert, ScheduleData } from "../../fakeDB";
 import { UserContext } from "../../App";
 import Modal from "../Modal";
 
@@ -73,7 +73,7 @@ export default function Home() {
   };
 
   const getSchedule = () => {
-    const data = Schedule[user.id];
+    const data = ScheduleData[user.id];
     data.sort((a, b) => new Date(a.date) - new Date(b.date));
     setData(data);
   };
@@ -351,15 +351,15 @@ export default function Home() {
         </div>
 
         {/* 일정추가 모달 */}
-        <Modal
-          userId={user.id}
-          isOpen={isOpen}
-          setModal={setModal}
-          setUseEffect={setUseEffect}
-          scheduleDate={`${new Date(selectedDate).getFullYear()}-${
-            new Date(selectedDate).getMonth() + 1
-          }-${new Date(selectedDate).getDate()}`}
-        />
+        {isOpen && (
+          <Modal
+            userId={user.id}
+            setIsOpenModal={setModal}
+            pickDate={`${new Date(selectedDate).getFullYear()}-${
+              new Date(selectedDate).getMonth() + 1
+            }-${new Date(selectedDate).getDate()}`}
+          />
+        )}
       </div>
     </div>
   );
