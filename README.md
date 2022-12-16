@@ -9,7 +9,7 @@
 <br />
 
 ## 	&#127968; Home page
-https://www.don-forget.com
+[https://www.don-forget.com](https://bit.ly/3uT0IEg)
 
 <br />
 
